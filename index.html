@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+       
     
     <title>Document</title>
 </head>
@@ -19,22 +20,30 @@
 
     <div class="row container-fluid" >
         <div class="col-4" id="side-container">            
-            <div class="card p-3" id="custom-card">
+            <form class="card p-3 " id="custom-card">
                 <h3>Search For City:</h3>
-                <input id="input-area" class="form-control my-2" type="text"></input>
-                <button type ="submit" class="search-Btn">Search</button>
-            </div>
+                <input id="input-area" class="form-input inputEl" type="text" autofocus="true"></input>
+                <button type ="submit" class="search-Btn" >Search</button>
+            </form>
         </div>
         <div class="col-8">
-            <div class="row justify-content-center" id = "main-container">
-                Main info goes here
+            <div class="col-12 container justify-content-center" >
+                <ul>
+                    <li id="main-container" class="row hidden"></li>
+                    <li id="weather-icon" class="row hidden"></li>
+                    <li id="temperature" class="row hidden"></li>
+                    <li id="humidity" class="row hidden"></li>
+                    <li id="wind-speed" class="row hidden"></li>
+                    <li id="uv-index" class="row hidden"></li>
+                </ul>
             </div>
-            <div class="row container" id="five-days">
-                <div class="col">Day 1</div>
-                <div class="col">Day 2</div>
-                <div class="col">Day 3</div>
-                <div class="col">Day 4</div>
-                <div class="col">Day 5</div>                
+            <div class="row d-flex container border-2" id="five-days">
+                <div class="col custom-col">Day 1</div>
+                <div class="col custom-col">Day 2</div>
+                <div class="col custom-col">Day 3</div>
+                <div class="col custom-col">Day 4</div>
+                <div class="col custom-col">Day 5</div>
+                                
             </div>
         </div>
     </div>
@@ -42,9 +51,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
         crossorigin="anonymous"></script>
     <script src="./assets/javaScript/logic.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

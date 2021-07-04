@@ -1,3 +1,53 @@
 #custom-card{
     background-color: rgb(139, 135, 135);
 }
+
+
+#five-days{
+    height: 25vh;
+    border: 2px solid red;
+    margin: 1rem ;
+    align-items: flex-start;    
+}
+
+.custom-col{
+    border: 2px solid black;
+    height: 19vh;
+    text-align: center;
+    margin: auto .75rem;
+}
+
+body{
+    background: linear-gradient(rgba(30, 80, 200, 0.3), rgba(30, 80, 230, 0.7));
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.hidden{
+    display:none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.custom-low-uvIndex{
+    background: greenyellow !important;
+}
+
+.custom-moderate-uvIndex{
+    background-color: yellow !important;
+}
+
+.custom-high-uvIndex{
+    background-color: orange !important;
+}
+
+.custom-vhigh-uvIndex{
+    background: orangered !important;
+    border: 3px solid red;
+}
+
+.custom-extreme-uvIndex{
+    background-color: purple !important;
+}
