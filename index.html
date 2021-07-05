@@ -10,40 +10,70 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
        
     
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <header class="jumbotron col-12 m-3">
-        <h1 class="justify-content-center d-flex">Weather Dashboard</h1>
+    <header class="jumbotron m-3" id="custom-header">
+        <h1 class="justify-content-start d-flex">WEATHER DASHBOARD</h1>
     </header>
 
     <div class="row container-fluid" >
         <div class="col-4" id="side-container">            
             <form class="card p-3 " id="custom-card">
-                <h3>Search For City:</h3>
-                <input id="input-area" class="form-input inputEl" type="text" autofocus="true"></input>
-                <button type ="submit" class="search-Btn" >Search</button>
-            </form>
+                <h3>Search by City Name:</h3>
+                <input id="input-area" class="form-input inputEl m-2" type="text" autofocus="true" placeholder="City Name"></input>
+                <button type ="submit" class="search-Btn icon" >🔍</button>
+            </form>            
         </div>
         <div class="col-8">
             <div class="col-12 container justify-content-center" >
                 <ul>
                     <li id="main-container" class="row hidden"></li>
-                    <li id="weather-icon" class="row hidden"></li>
+                    <li id="weather-icon" class="row hidden icon"></li>
                     <li id="temperature" class="row hidden"></li>
                     <li id="humidity" class="row hidden"></li>
                     <li id="wind-speed" class="row hidden"></li>
                     <li id="uv-index" class="row hidden"></li>
                 </ul>
             </div>
-            <div class="row d-flex container border-2" id="five-days">
-                <div class="col custom-col">Day 1</div>
-                <div class="col custom-col">Day 2</div>
-                <div class="col custom-col">Day 3</div>
-                <div class="col custom-col">Day 4</div>
-                <div class="col custom-col">Day 5</div>
-                                
+            <div class="row d-flex container border-2 hidden" id="five-days">
+                
+                <ul class="col">
+                    <li id="weather-icon-0" class="row hidden icon"></li>
+                    <li id="temperature-0" class="row hidden"></li>
+                    <li id="humidity-0" class="row hidden"></li>
+                    <li id="wind-speed-0" class="row hidden"></li>
+                    <li id="uv-index-0" class="row hidden"></li>
+                </ul>
+                <ul class="col">
+                    <li id="weather-icon-1" class="row hidden icon"></li>
+                    <li id="temperature-1" class="row hidden"></li>
+                    <li id="humidity-1" class="row hidden"></li>
+                    <li id="wind-speed-1" class="row hidden"></li>
+                    <li id="uv-index-1" class="row hidden"></li>
+                </ul>
+                <ul class="col">
+                    <li id="weather-icon-2" class="row hidden icon"></li>
+                    <li id="temperature-2" class="row hidden"></li>
+                    <li id="humidity-2" class="row hidden"></li>
+                    <li id="wind-speed-2" class="row hidden"></li>
+                    <li id="uv-index-2" class="row hidden"></li>
+                </ul>
+                <ul class="col">
+                    <li id="weather-icon-3" class="row hidden icon"></li>
+                    <li id="temperature-3" class="row hidden"></li>
+                    <li id="humidity-3" class="row hidden"></li>
+                    <li id="wind-speed-3" class="row hidden"></li>
+                    <li id="uv-index-3" class="row hidden"></li>
+                </ul>
+                <ul class="col">
+                    <li id="weather-icon-4" class="row hidden icon"></li>
+                    <li id="temperature-4" class="row hidden"></li>
+                    <li id="humidity-4" class="row hidden"></li>
+                    <li id="wind-speed-4" class="row hidden"></li>
+                    <li id="uv-index-4" class="row hidden"></li>
+                </ul>                               
             </div>
         </div>
     </div>

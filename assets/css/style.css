@@ -1,11 +1,29 @@
+*{
+    color:rgb(110, 228, 228);
+}
+
 #custom-card{
-    background-color: rgb(139, 135, 135);
+    background: rgb(68, 67, 67);
+    color:lightcyan;
+}
+
+input{
+    color: black;
+}
+
+#custom-header{
+    background-image:url(/assets/img/maxresdefault.jpg);
+    
+}
+
+h1{
+    color: lightcyan;
+    
 }
 
 
 #five-days{
     height: 25vh;
-    border: 2px solid red;
     margin: 1rem ;
     align-items: flex-start;    
 }
@@ -18,7 +36,7 @@
 }
 
 body{
-    background: linear-gradient(rgba(30, 80, 200, 0.3), rgba(30, 80, 230, 0.7));
+    background: linear-gradient(0.25turn, rgba(7, 20, 51, 0.8), rgba(0, 0, 0, 0.9));
     background-repeat: no-repeat;
     height: 100vh;
 }
@@ -45,9 +63,23 @@ ul{
 
 .custom-vhigh-uvIndex{
     background: orangered !important;
-    border: 3px solid red;
+    
 }
 
 .custom-extreme-uvIndex{
     background-color: purple !important;
 }
+
+.icon{
+    font-size: 3rem;
+}
+
+.search-Btn:hover{
+    color:honeydew;
+    background-color: lightcoral;
+}
+
+[id|=uv]{
+    color: black;
+}
+
