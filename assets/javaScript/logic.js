@@ -8,12 +8,13 @@ const futureForecast = document.querySelector('#five-days');
 const displayTemp = document.querySelector('#temperature');
 const displayHumi = document.querySelector('#humidity');
 const displayWindSpeed = document.querySelector('#wind-speed');
-const displayUvIndex = document.querySelector('#uv-index');
+const displayUvIndex = document.querySelector('#uv-index-5');
 const previousSearch = document.querySelector('#side-container');
+const currentDate = document.querySelector('#current-date')
 
 const apiKey = 'f846e26f3aae4ab1fe222c8a837c3a9f'
 const apiQueryUrl = 'api.openweathermap.org/data/2.5/weather?&appid=f846e26f3aae4ab1fe222c8a837c3a9'
-
+const createSearch = document.querySelector("#newButton");
 
 let formSubmitHandler = function (event) {
     event.preventDefault();
@@ -65,6 +66,18 @@ let oneWeatherCall = function (lat, lon) {
                         displayWindSpeed.textContent = '';
                         displayUvIndex.textContent = '';
                         futureForecast.classList.add('hidden');
+                        localStorageHandling(userInputEl.value);
+
+                        //current date
+                        let daynow = new Date();
+                        let weekday = daynow.getDay();
+                        let month = daynow.getMonth();
+                        let day = daynow.getDate();
+
+                        let monthNow = getMonth(month);
+                        let weeks = getWeek(weekday);
+                        currentDate.classList.remove('hidden');
+                        currentDate.textContent = `${weeks}, ${monthNow}  ${day}`;
 
                         // city name handling components
                         let cityName = userInputEl.value.trim().toUpperCase();
@@ -101,7 +114,7 @@ let oneWeatherCall = function (lat, lon) {
                         let getHumidity = data.current.humidity;
                         let currentHumidityEl = document.createElement('p');
                         currentHumidityEl.textContent = `Humidity: ${getHumidity} %`;
-                        
+
                         displayHumi.append(currentHumidityEl);
 
                         // wind Speed data handling component
@@ -126,7 +139,7 @@ let oneWeatherCall = function (lat, lon) {
                             uvIndexFunc();
                         } else if (getUvIndex > 7 && getUvIndex <= 10) {
                             currentUvEl.classList.add('custom-vhigh-uvIndex');
-                            
+
                             uvIndexFunc();
                         } else if (getUvIndex > 6 && getUvIndex <= 7) {
                             currentUvEl.classList.add('custom-uvIndex');
@@ -151,11 +164,20 @@ let oneWeatherCall = function (lat, lon) {
                             let displayFutureHumidity = document.querySelector(`#humidity-${i}`);
                             let displayFutureWind = document.querySelector(`#wind-speed-${i}`)
                             let displayFutureUvEl = document.querySelector(`#uv-index-${i}`);
+                            let futureDate = document.querySelector(`#current-date-${i}`)
 
                             futureTemp.textContent = '';
                             displayFutureHumidity.textContent = '';
                             displayFutureWind.textContent = '';
                             displayFutureUvEl.textContent = '';
+
+                            // Date for future forecast
+                            let futureWeek = getWeek(weekday + (i + 1));
+                            let futureMonth = getMonth(month);
+                            let futureDay = day + (i + 1);
+                            futureDate.textContent = `${futureWeek}, ${futureMonth} ${futureDay}`;
+
+
 
 
                             let weatherConditions = data.daily[i].weather[0].main.toLowerCase();
@@ -173,30 +195,30 @@ let oneWeatherCall = function (lat, lon) {
 
                             // temperature data handling components
                             let fiveDaysTemp = data.daily[i].temp.day;
-                            
+
                             // converting from Kelvin to F
                             let tempConversion = (fiveDaysTemp - 273.15) * 9 / 5 + 32;
                             futureTemp.textContent = `Temperature: ${tempConversion.toFixed(1)} F`;
-                            
+
 
                             //  Humidity data handling component
                             let futureHumidity = data.daily[i].humidity;
-                            
+
                             displayFutureHumidity.textContent = `Humidity: ${futureHumidity} %`;
-                            
+
 
                             // wind Speed data handling component
                             let futureWind = data.daily[i].wind_speed;
-                            
+
                             displayFutureWind.textContent = `Wind-speed: ${futureWind} mph`;
-                            
+
 
                             //UV Index data handling component 
                             let futureUvIndex = data.daily[i].uvi;
-                            
+
 
                             let futureUvIndexFunc = function () {
-                                displayFutureUvEl.textContent = `UV-index: ${futureUvIndex}`;                                
+                                displayFutureUvEl.textContent = `UV-index: ${futureUvIndex}`;
 
                             }
                             //Need to be able to override Css  
@@ -217,42 +239,107 @@ let oneWeatherCall = function (lat, lon) {
                                 futureUvIndexFunc();
                             }
 
-
-
-
                         }
-
                     })
             };
         });
 
 
-    // let localStorageHandling = function () {
 
-    //     let storedHistory = localStorage.getItem('City') || [];
-    //     let newCity = userInputEl.value.trim();
-    //     let newArray = [];
-    //     newArray.push(newCity)
-    //     newArray.push(storedHistory);
-    //     localStorage.setItem('City', newArray);
+}
+
+let getMonth = function (m) {
+
+    let monthNow;
 
 
-    //     for(let i = 0; i< localStorage.length;i++){
+    if (m == 0) {
+        monthNow = "January";
+    } else if (m == 1) {
+        monthNow = "February";
+    } else if (m == 2) {
+        monthNow = "March";
+    } else if (m == 3) {
+        monthNow = "April";
+    } else if (m == 4) {
+        monthNow = "May";
+    } else if (m == 5) {
+        monthNow = "June";
+    } else if (m == 6) {
+        monthNow = "July";
+    } else if (m == 7) {
+        monthNow = "August";
+    } else if (m == 8) {
+        monthNow = "September";
+    } else if (m == 9) {
+        monthNow = "October";
+    } else if (m == 10) {
+        monthNow = "November";
+    } else if (m == 11) {
+        monthNow = "December"
+    }
 
-    //         let searchBtn = document.createElement('button');
-    //         searchBtn.setAttribute('type', 'submit');
-    //         searchBtn.classList.add('search-Btn', 'col-12', 'm-2', 'p-2');
-    //         searchBtn.textContent = i;
-    //         previousSearch.append(searchBtn);
+    return monthNow;
+}
 
-    //     }
+let getWeek = function (w) {
+    let week;
+    if (w == 0 || w == 7) {
+        week = 'Sunday';
+    } else if (w == 1) {
+        week = 'Monday';
+    } else if (w == 2) {
+        week = 'Tuesday';
+    } else if (w == 3) {
+        week = 'Wednesday';
+    } else if (w == 4) {
+        week = 'Thrusday';
+    } else if (w == 5) {
+        week = 'Friday';
+    } else if (w == 6) {
+        week = 'Saturday';
+    }
 
-
-    // }
-    // localStorageHandling();
+    return week;
 }
 
 
 
 
-userCardEl.addEventListener('submit', formSubmitHandler);
+
+let localStorageHandling = function (cityName) {
+    const cityList = {};
+    
+    
+    let cities = JSON.parse(localStorage.getItem("cityList")) || [];
+    cities.push(cityName);
+    localStorage.setItem("cityList", JSON.stringify(cities));
+    
+}
+
+let addCity = function(city){
+    let createCity = document.createElement('button');
+    createCity.textContent = city;
+    createCity.setAttribute('type', 'submit');
+    createCity.setAttribute('id', 'newButton');
+    previousSearch.append(createCity);
+    
+    console.log(createCity);    
+}
+
+let previousSearches = function (){
+    let cities = JSON.parse(localStorage.getItem("cityList")) || [];
+    
+    if(cities.length > 0){
+        searchInputLocation(cities[cities.length - 1]);
+    }
+    
+    for(let i = 0; i < cities.length; i++){
+        addCity(cities[i]);
+    }
+    console.log(cities);
+}
+previousSearches();
+
+userCardEl.addEventListener('click', formSubmitHandler);
+
