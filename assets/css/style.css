@@ -1,6 +1,10 @@
 *{
     color:rgb(110, 228, 228);
 }
+html{
+    margin: 0;
+    padding: 0;
+}
 
 #custom-card{
     background: rgb(68, 67, 67);
@@ -13,8 +17,11 @@ input{
 
 #custom-header{
     background-image:url(/assets/img/maxresdefault.jpg);
-    
+    width: 100%;   
+    margin: 0; 
 }
+
+
 
 h1{
     color: lightcyan;
@@ -49,25 +56,33 @@ ul{
     list-style-type: none;
 }
 
+.custom-{
+    width: auto;
+}
+
 .custom-low-uvIndex{
     background: greenyellow !important;
+    width: 10rem;
 }
 
 .custom-moderate-uvIndex{
     background-color: yellow !important;
+    width: 10rem;
 }
 
 .custom-high-uvIndex{
     background-color: orange !important;
+    width: 10rem;
 }
 
 .custom-vhigh-uvIndex{
-    background: orangered !important;
-    
+    background: orangered !important;   
+    width: 10rem; 
 }
 
 .custom-extreme-uvIndex{
     background-color: purple !important;
+    width: 10rem;
 }
 
 .icon{
@@ -79,7 +94,17 @@ ul{
     background-color: lightcoral;
 }
 
+.btn {
+    width: 30rem;
+    margin: .5rem auto;
+}
 [id|=uv]{
     color: black;
 }
 
+#searched-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
