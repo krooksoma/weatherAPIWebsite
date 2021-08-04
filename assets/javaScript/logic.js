@@ -15,11 +15,12 @@ const currentDate = $("#current-date")
 const apiKey = "f846e26f3aae4ab1fe222c8a837c3a9f"
 const apiQueryUrl = "api.openweathermap.org/data/2.5/weather?&appid=f846e26f3aae4ab1fe222c8a837c3a9"
 const createSearch = $("#newButton");
+const submitBtn = document.querySelector('#search-button');
 
 let clickedBtn = '';
 
-function formSubmitHandler () {
-    
+function formSubmitHandler (event) {
+    event.preventDefault();
     console.log(userInputEl);
     let givenInput = userInputEl.value.trim().toLowerCase() || clickedBtn;
 
@@ -346,5 +347,7 @@ getPrevious.on("click", function (event){
 });
 
 
-userCardEl.on("submit", formSubmitHandler);
+
+
+userCardEl.on("submit", formSubmitHandler)
 
